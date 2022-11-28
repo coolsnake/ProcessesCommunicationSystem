@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5.1)
 
-PROJECT(pcs)
+#PROJECT(pcs)
 
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
@@ -12,7 +12,8 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include/utils
                     ${PROJECT_SOURCE_DIR}/include/transport
                     ${PROJECT_SOURCE_DIR}/include/nodeDiscoveryProtocol
                     ${PROJECT_SOURCE_DIR}/include/publish
-		    ${PROJECT_SOURCE_DIR}/include/subscribe)
+                    ${PROJECT_SOURCE_DIR}/include/pcsProcess
+                    ${PROJECT_SOURCE_DIR}/include/subscribe)
 
 ADD_LIBRARY(subscribe SHARED ${SUBSCRIBE_SRC})
 
@@ -29,4 +30,4 @@ SET_TARGET_PROPERTIES(subscribe_static PROPERTIES OUTPUT_NAME "subscribe")
 
 SET_TARGET_PROPERTIES(subscribe_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
-INSTALL(TARGET subscribe_static ARCHIVE DESTINATION ${LIBRARY_OUTPUT_PATH})
+INSTALL(TARGETS subscribe_static ARCHIVE DESTINATION ${LIBRARY_OUTPUT_PATH})
